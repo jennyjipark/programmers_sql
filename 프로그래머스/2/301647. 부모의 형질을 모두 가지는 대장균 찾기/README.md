@@ -201,3 +201,20 @@ ID 8 : 부모는 ID 6 이며 부모의 형질 1, 3번을 모두 보유하고 있
       </table>
 
 > 출처: 프로그래머스 코딩 테스트 연습, https://school.programmers.co.kr/learn/challenges
+
+---
+### 🟡 내 코드
+~~~ sql
+SELECT
+    C.ID
+    , C.GENOTYPE
+    , P.GENOTYPE PARENT_GENOTYPE
+FROM
+    ECOLI_DATA C
+    INNER JOIN ECOLI_DATA P
+        ON C.PARENT_ID = P.ID
+WHERE
+    C.GENOTYPE & P.GENOTYPE = P.GENOTYPE
+ORDER BY
+    C.ID;
+~~~
