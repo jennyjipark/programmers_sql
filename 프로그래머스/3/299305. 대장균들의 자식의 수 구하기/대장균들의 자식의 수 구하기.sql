@@ -1,0 +1,16 @@
+
+SELECT
+    PARENT.ID,
+    COUNT(CHILD.ID) AS CHILD_COUNT
+-- 1번 테이블 조회
+FROM
+    ECOLI_DATA AS PARENT
+-- LEFT OUTER는 왼쪽 없으면 0으로 만들어서 값을 넣어줌
+LEFT OUTER JOIN
+    ECOLI_DATA AS CHILD ON PARENT.ID = CHILD.PARENT_ID
+-- 부모 아이디로 그루핑
+GROUP BY
+    PARENT.ID
+-- 부모 아이디로 정렬
+ORDER BY
+    PARENT.ID
